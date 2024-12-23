@@ -201,6 +201,40 @@
       $("#audio-playback").val(useEmbeddedPlayer ? "true" : "false")
     })
 
+  Promise.all([brapi.storage.local.get(["replace"]), domReadyPromise])
+    .then(([settings]) => {
+      const replace = settings.replace || defaults.replace
+      const row = $("#replace .search-and-replace-row").remove()
+      function updateReplace() {
+        const pairs = $("#replace .search-and-replace-row").map((_, el) => ({
+            from: $(".replace-from", el).val(),
+            to: $(".replace-to", el).val(),
+            flags: 'gi'
+          })
+        )
+        updateSettings({replace: {pairs}})
+      }
+
+      $("#replace").on("click", ".search-and-replace-row .btn-remove-replace", function() {
+        $(this).closest(".search-and-replace-row").remove()
+        updateReplace()
+      })
+
+      $(document).on("click", ".btn-add-replace-pair", function() {
+        row.clone().appendTo("#replace")
+        updateReplace()
+      })
+
+      $("#replace").on("change", ".search-and-replace-row input", updateReplace)
+
+      Array.prototype.forEach.call(replace.pairs, pair => {
+        const newRow = row.clone().appendTo("#replace")
+        $(".replace-from", newRow).val(pair.from)
+        $(".replace-to", newRow).val(pair.to)
+      })
+    })
+
+
 
 
   //buttons

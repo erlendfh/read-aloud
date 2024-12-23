@@ -99,7 +99,30 @@
         <option value="false" data-i18n="options_audio_playback_standalone"></option>
         <option value="true" data-i18n="options_audio_playback_embedded"></option>
       </select>
+
+      <div>
+        <span data-i18n="options_replace"></span><br />
+        <button type="button" class="btn btn-light btn-add-replace-pair">
+          <i class="material-icons">add</i> <span data-i18n="options_replace_add_rule" />
+        </button>
+      </div>
+      <div id="replace">
+        <div class="form-control search-and-replace-row">
+          <div class="search-and-replace-row-actions">
+            <button name="remove" type="button" class="btn btn-sm btn-light btn-remove-replace">
+              <i class="material-icons">delete</i>
+            </button>
+          </div>
+
+          <span data-i18n="options_replace_find"></span>
+          <input name="from" class="form-control replace-from" type="text" />
+          <span data-i18n="options_replace_replace_with"></span>
+          <input name="to" class="form-control replace-to" type="text" />
+        </div>
+      </div>
+
     </div>
+
 
     <div class="form-group buttons">
       <button type="button" id="test-voice" class="btn btn-info">

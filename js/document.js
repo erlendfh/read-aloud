@@ -319,8 +319,10 @@ function Doc(source, onEnd) {
       rate: settings.rate || defaults.rate,
       pitch: settings.pitch || defaults.pitch,
       volume: settings.volume || defaults.volume,
+      replace: settings.replace || defaults.replace,
       lang: config.langMap[lang] || lang || 'en-US',
     }
+
     const voice = await getSpeechVoice(settings.voiceName, options.lang)
     if (!voice) throw new Error(JSON.stringify({code: "error_no_voice", lang: options.lang}));
     options.voice = voice;

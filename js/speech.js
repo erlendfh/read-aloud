@@ -1,6 +1,16 @@
 
 function Speech(texts, options) {
   options.rate = (options.rate || 1) * (isGoogleNative(options.voice) ? 0.9 : 1);
+  const searchReplace = Array.prototype.map.call(options.replace.pairs, ({from, to, flags}) => [new RegExp(from, flags), to]);
+
+  texts = texts.map(text =>
+    searchReplace.reduce(
+      (text, [search, replace]) =>
+        text.replaceAll(search, replace),
+      text
+    )
+  );
+
 
   for (var i=0; i<texts.length; i++) if (/[\w)]$/.test(texts[i])) texts[i] += '.';
   if (texts.length) texts = getChunks(texts.join("\n\n"));

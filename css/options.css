@@ -54,6 +54,19 @@ button.close {
   color: white;
 }
 
+.search-and-replace-row-actions {
+  float: right;
+}
+
+.search-and-replace-row {
+  margin-bottom: 1rem;
+}
+
+#replace {
+  height: 10rem;
+  overflow: scroll;
+}
+
 h2 {
   margin-top: 0;
   margin-bottom: 0;

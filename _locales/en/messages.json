@@ -89,6 +89,18 @@
   "options_logout_button": {
     "message": "Logout"
   },
+  "options_replace": {
+    "message": "Replace text"
+  },
+  "options_replace_add_rule": {
+    "message": "Add Rule"
+  },
+  "options_replace_find": {
+    "message": "Find"
+  },
+  "options_replace_replace_with": {
+    "message": "Replace with"
+  },
   "player_tab_explanation": {
     "message": "Read Aloud uses this tab for audio playback. This tab will automatically close after 5 minutes of no activity."
   },
